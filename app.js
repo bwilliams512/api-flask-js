@@ -17,7 +17,7 @@ app.get("/api/compliments", async (req, res) => {
   // TODO: Get a list of messages sent from a specific number
   const sentMessages = await client.messages.list({from: twilioPhoneNumber});
   // TODO: Gather only the body of those messages for sending to the client
-  const compliments = sentMessages;
+  const compliments = sentMessages.map(message => message.body);
   res.json(compliments);
 });
 
