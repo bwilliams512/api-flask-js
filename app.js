@@ -1,8 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
+const TwilioClient = require("twilio");
 const app = express();
 const port = 3000;
+
+const client = new TwilioClient();
 
 // This is a single page application and it's all rendered in public/index.html
 app.use(express.static("public"));
